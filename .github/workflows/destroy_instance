@@ -1,0 +1,17 @@
+name: Creation of Azure_VM
+on:
+  workflow_dispatch::
+jobs:
+  review:
+    runs-on: self-hosted
+    environment: review
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+ 
+      - name: azure view deployment changes
+        run: |
+              cd terraform_code
+              terraform init
+              terraform destroy
+  
