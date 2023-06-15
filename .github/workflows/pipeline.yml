@@ -26,6 +26,7 @@ jobs:
       - name: create azure_vm in DEV ENV
         run: |
               cd terraform_code
+              terraform init
               terraform apply
     
   
@@ -40,6 +41,7 @@ jobs:
       - name: create azure_vm in QA ENV
         run: |
               cd terraform_code
+              terraform init
               terraform apply
       
   PRE-PROD:
