@@ -27,7 +27,7 @@ jobs:
         run: |
               cd terraform_code
               terraform init
-              terraform apply
+              terraform apply --auto-approve
     
   
   QA:
@@ -42,7 +42,7 @@ jobs:
         run: |
               cd terraform_code
               terraform init
-              terraform apply
+              terraform apply --auto-approve
       
   PRE-PROD:
     runs-on: self-hosted
@@ -55,7 +55,8 @@ jobs:
       - name: create Azure_vm in Pre-prod ENV
         run: |
               cd terraform_code
-              terraform apply
+              terraform init
+              terraform apply --auto-approve
      
      
      
