@@ -1,5 +1,11 @@
 terraform {
-  required_version = ">=0.12"
+  required_version = ">= 1.3"
+  backend "azurerm" {
+    resource_group_name  = "tfstate-files"
+    storage_account_name = "tfstatefiles9"
+    container_name       = "tfstate"
+    key                  = "actions.tfstate"
+  }
 
   required_providers {
     azurerm = {
