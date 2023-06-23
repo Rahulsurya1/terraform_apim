@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg" {
   location = var.resource_group_location
-  name     = apim-rg-${var.environment}
+  name     = "apim-rg-${var.environment}"
 }
 
 # Create virtual network
