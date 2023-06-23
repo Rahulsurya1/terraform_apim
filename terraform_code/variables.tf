@@ -6,7 +6,7 @@ variable "resource_group_location" {
 
 variable "resource_group_name" {
   type        = string
-  default     = "rg-1"
+  default     = "etpx-rg-${var.environment}"
   description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
 }
               
