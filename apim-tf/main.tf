@@ -42,7 +42,7 @@ resource "azurerm_log_analytics_workspace" "log" {
   location            = azurerm_resource_group.etpx-rg.location
   resource_group_name = azurerm_resource_group.etpx-rg.name
   sku                 = "PerGB2018"
-  retention_in_days   = 30
+  retention_in_days   = 40
   internet_ingestion_enabled = true
   internet_query_enabled = false
 }
