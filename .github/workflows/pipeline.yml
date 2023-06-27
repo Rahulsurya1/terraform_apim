@@ -12,7 +12,7 @@ jobs:
  
       - name: azure view deployment changes
         run: |
-              cd terraform_code
+              cd apim-tf
               terraform init
               terraform plan
    
@@ -25,7 +25,7 @@ jobs:
  
       - name: create azure_vm in DEV ENV
         run: |
-              cd terraform_code
+              cd apim-tf
               terraform init
               terraform apply
     
@@ -40,7 +40,7 @@ jobs:
           
       - name: create azure_vm in QA ENV
         run: |
-              cd terraform_code
+              cd apim-tf
               terraform apply
       
 
