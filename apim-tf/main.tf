@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "etpx-rg" {
   name     = "eptx-apim-workflow"
   location = "eastus2"
@@ -14,7 +10,7 @@ resource "azurerm_api_management" "apimservice" {
   location            = azurerm_resource_group.etpx-rg.location
   resource_group_name = azurerm_resource_group.etpx-rg.name
   publisher_name      = "etpx se"
-  publisher_email     = "support@etpx.se.com"
+  publisher_email     = "suppor@rahul.com"
   sku_name            = "Developer_1"
 
 }
