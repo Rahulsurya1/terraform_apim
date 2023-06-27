@@ -10,7 +10,7 @@ resource "azurerm_api_management" "apimservice" {
   location            = azurerm_resource_group.etpx-rg.location
   resource_group_name = azurerm_resource_group.etpx-rg.name
   publisher_name      = "etpxse"
-  publisher_email     = "suppor@rahul.com"
+  publisher_email     = "suppr@rahul.com"
   sku_name            = "Developer_1"
 
 }
