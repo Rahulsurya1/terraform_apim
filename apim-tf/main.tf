@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "etpx-rg" {
 #API Management creation
 
 resource "azurerm_api_management" "apimservice" {
-  name                = "ETPX-APIM"
+  name                = "ETPX-service"
   location            = azurerm_resource_group.etpx-rg.location
   resource_group_name = azurerm_resource_group.etpx-rg.name
   publisher_name      = "etpxse"
