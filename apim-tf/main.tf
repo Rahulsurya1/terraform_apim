@@ -14,7 +14,7 @@ resource "azurerm_api_management" "apimservice" {
   sku_name            = "Developer_1"
 
 }
-resource "azurerm_api_management_custom_domain" "domain" {
+resource "azurerm_api_management_custom_domain" "custdom" {
   api_management_id = azurerm_api_management.apimservice.id
 
   gateway {
