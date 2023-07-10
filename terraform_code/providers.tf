@@ -1,7 +1,7 @@
 terraform {
-  #backend "local" {
-   # path = "/home/ubuntu/actions-runner/terraform/terraform_apim/terraform_apim/terraform_code"
-  #}
+  backend "local" {
+    path = "/home/ubuntu/actions-runner/terraform/terraform_apim/terraform_apim/terraform_code"
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
