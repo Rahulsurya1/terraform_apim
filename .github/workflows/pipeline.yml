@@ -1,7 +1,6 @@
 name: Creation of Azure_VM
 on:
-  push:
-    branches: dev
+  workflow_dispatch:
 jobs:
   review:
     runs-on: self-hosted
