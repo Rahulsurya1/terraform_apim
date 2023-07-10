@@ -27,7 +27,7 @@ jobs:
         run: |
               cd terraform_code
               terraform init
-              terraform apply
+              terraform apply --auto-approve
     
 
 
