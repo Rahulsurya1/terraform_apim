@@ -11,12 +11,13 @@ jobs:
  
       - name: azure view deployment changes
         run: |
-              cd apim-tf
+              cd terraform_code
               terraform init
               terraform plan
    
   DEV:
     runs-on: self-hosted
+    needs: review
     environment: dev
     steps:
       - name: Checkout
@@ -24,7 +25,7 @@ jobs:
  
       - name: create azure_vm in DEV ENV
         run: |
-              cd apim-tf
+              cd terraform_code
               terraform init
               terraform apply
     
