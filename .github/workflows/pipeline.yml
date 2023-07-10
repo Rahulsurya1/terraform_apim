@@ -29,20 +29,7 @@ jobs:
               terraform init
               terraform apply
     
-  
-  QA:
-    runs-on: self-hosted
-    environment: qa
-    needs: DEV
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.5.2
-          
-      - name: create azure_vm in QA ENV
-        run: |
-              cd apim-tf
-              terraform apply
-      
+
 
      
      
