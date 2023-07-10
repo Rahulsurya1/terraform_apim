@@ -29,4 +29,15 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+  security_rule {
+    name                       = "add-2"
+    priority                   = 1031
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "6578"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
