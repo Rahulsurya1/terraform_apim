@@ -1,22 +1,15 @@
 terraform {
-  required_version = ">=0.12"
-
+  required_version = ">= 1.3"
+  backend "local" {  
+    path = /home/ubuntu/actions-runner/_work/terraform_apim/terraform_apim/terraform_code
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~>2.0"
+      version = "=3.0.0"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "~>3.0"
-    }
-    tls = {
-      source = "hashicorp/tls"
-      version = "~>4.0"
-    }
-  }
 }
-
-provider "azurerm" {
-  features {}
+}
+provider "azurerm" { 
+  features {}  
 }
