@@ -1,6 +1,6 @@
 terraform {
   backend "local" {
-    path = "/home/ubuntu/actions-runner/terraform/terraform_apim/terraform_apim/terraform_code"
+    path = "/home/ubuntu/actions-runner/terraform/terraform_apim/terraform_apim/terraform_code/.terraform/terraform.tfstate"
   }
   required_providers {
     azurerm = {
