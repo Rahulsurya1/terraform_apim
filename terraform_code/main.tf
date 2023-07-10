@@ -5,9 +5,8 @@ data "azurerm_resource_group" "etpx-apim-rg" {
 # Create Network Security Group and rule
 resource "azurerm_network_security_group" "my_terraform_nsg" {
   name                = "myNetworkSecurityGroup"
-  location            = azurerm_resource_group.etpx-apim-rg.location
-  resource_group_name = azurerm_resource_group.etpx-apim-rg.name
-
+  location            = data.azurerm_resource_group.etpx-apim-rg.location
+  resource_group_name = data.azurerm_resource_group.etpx-apim-rg.name
   security_rule {
     name                       = "SSH"
     priority                   = 1011
