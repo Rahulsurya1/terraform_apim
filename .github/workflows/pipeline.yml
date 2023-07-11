@@ -13,7 +13,7 @@ jobs:
         run: |
               cd terraform_code
               terraform init
-              terraform plan
+              terraform plan -state /home/ubuntu/actions-runner/_work/terraform_apim/terraform_apim/terraform_code/terraform.tfstate
    
   DEV:
     runs-on: self-hosted
@@ -27,7 +27,7 @@ jobs:
         run: |
               cd terraform_code
               terraform init
-          #    terraform apply --auto-approve
+              terraform apply --auto-approve -state /home/ubuntu/actions-runner/_work/terraform_apim/terraform_apim/terraform_code/terraform.tfstate
     
 
 
