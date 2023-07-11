@@ -30,7 +30,7 @@ security_rule {
                 protocol                    = "Tcp"
                 source_port_range           = "*"
                 destination_port_range      = "3443"
-                source_address_prefix       = "Api.Management.EASTUS2"
+                source_address_prefix       = "ApiManagement.EASTUS2"
                 destination_address_prefix  = "VirtualNetwork"
 }      
 }
