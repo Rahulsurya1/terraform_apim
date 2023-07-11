@@ -2,42 +2,35 @@ data "azurerm_resource_group" "etpx-apim-rg" {
   name     = "etpxapimdata"
 }
 
-# Create Network Security Group and rule
-resource "azurerm_network_security_group" "my_terraform_nsg" {
-  name                = "myNetworkSecurityGroup"
-  location            = data.azurerm_resource_group.etpx-apim-rg.location
+data "azurerm_virtual_network" "etpx-apim-vnet" {
+  name                = "vnet-spoke-digetpxdata01intdit001-prod-eu2-001"
+  resource_group_name = data.azurerm_resource_group.etpx-apim-rg.name  
+}
+
+resource "azurerm_subnet" "etpx-apim-sn" {
+    name                 = "etpx-apim-int-sn-2"
+    virtual_network_name = data.azurerm_virtual_network.etpx-apim-vnet.name
+    resource_group_name  = data.azurerm_resource_group.etpx-apim-rg.name
+    address_prefixes     = ["10.0.30.0/24"]
+    service_endpoints    = ["Microsoft.KeyVault", "Microsoft.Sql", "Microsoft.Storage", "Microsoft.EventHub"]
+        
+}    
+ 
+ resource "azurerm_network_security_group" "etpx-apim-nsg" {
+  name                = "etpx-apim-nsg-2"
   resource_group_name = data.azurerm_resource_group.etpx-apim-rg.name
-  security_rule {
-    name                       = "SSH"
-    priority                   = 1011
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-  security_rule {
-    name                       = "add-1"
-    priority                   = 1021
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "9999"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-  security_rule {
-    name                       = "add-2"
-    priority                   = 1031
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "6578"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+  location            = data.azurerm_resource_group.etpx-apim-rg.location
+
+security_rule {
+   
+                name                        = "AllowManagementEndpointInbound"
+                priority                    = 101
+                direction                   = "Inbound"
+                access                      = "Allow"
+                protocol                    = "Tcp"
+                source_port_range           = "*"
+                destination_port_range      = "3443"
+                source_address_prefix       = "Api.Management.EASTUS2"
+                destination_address_prefix  = "VirtualNetwork"
+}      
 }
